@@ -6,6 +6,7 @@ from keras.layers import (Activation, Concatenate, Conv2D, Dense, Flatten,
                           Input, Reshape)
 from keras.models import Model
 
+import Deropy.common as cmn
 import Deropy.neural as nrl
 import Deropy.visual as vsl
 
@@ -44,7 +45,7 @@ def create_model():
 
 class sudoku_generator:
     def __init__(self, train_size, test_size):
-        df = pd.read_csv('sudoku.csv')
+        df = pd.read_csv(cmn.dpath('sudoku.csv'))
         df_s = df.sample(frac=1, random_state=0)  # シャッフル
         self.train_df = df[:train_size]
         self.test_df = df[train_size:train_size + test_size]
