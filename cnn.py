@@ -77,7 +77,7 @@ def main():
     model.compile(optimizer='adam',
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
-    es_callback = EarlyStopping(monitor='val_loss', patience=5, verbose=1)
+    es_callback = EarlyStopping(monitor='val_loss', patience=3, verbose=1)
     histry = model.fit_generator(train_gen,
                                  validation_data=test_gen,
                                  steps_per_epoch=train_size // batch_size,

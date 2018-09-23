@@ -27,11 +27,10 @@ def plot_sudoku(firstdf):
             plt.text(0.35 + x, 0.3 + y, firstdf[x][8 - y],
                      fontsize=14, color='r')
 
-        if non_sum:  # 空欄あり
-            print(non_sum)
-            plt.pause(0.01)  # 描画(待ち時間)
-            plt.cla()  # 描写消去
-        else:
+        plt.pause(0.1)  # 描画(待ち時間)
+        plt.cla()  # 描写消去
+
+        if not non_sum:  # 空欄なし
             print('Finish !!!\n', df)
             plt.show()
             return
